@@ -1,0 +1,17 @@
+@import "/wxParse/wxParse.wxss";
+
+.show_content{padding:30rpx;border-top: 10rpx solid #eee;}
+.show_content .cont p{display: block;font-size: 40rpx;font-weight: 300;}
+.show_content .cont{line-height: 60rpx;padding:30rpx;}
+.show_content .wxParse-p{color: #666;padding:30rpx 0}
+
+.shareArea{text-align: center;padding:30rpx 0;}
+.shareButton{margin-top:20rpx;width:100%;}
+
+.shareArea:before{content:'点击文字可以复制哦';color:#f60;font-size: 30rpx;display: block;padding-bottom:50rpx;}
+
+.guess{background: #eee;padding-top:40rpx;}
+.guess h2{text-align: center;display: block;padding-bottom:10rpx;}
+.listViews{margin:30rpx;background:#fff;padding:40rpx;border-radius: 20rpx;}
+.listViews h3{font-size: 36rpx;display:block;padding-bottom:20rpx;font-weight: 300;}
+.listViews p{font-size:30rpx;color: #666;}

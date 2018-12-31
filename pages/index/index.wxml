@@ -1,0 +1,21 @@
+<view class="container bgeee">
+  <view>
+    <scroll-view scroll-with-animation="true" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+      <view wx:for="{{expertList}}" wx:for-index="idx" wx:for-item="item" class="tab-item {{currentTab==idx?'active':''}}"
+        data-current="{{idx}}" bindtap="swichNav">{{item.classname}}</view>
+    </scroll-view>
+  </view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
+    <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
+      <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
+        <view class="layout_vertical">
+          <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item" data-text="{{item.title}}">
+            <navigator url="../juzi_detail/juzi_detail?classid={{item.classid}}&id={{item.id}}" hover-class="navigator-hover">
+              <h3>{{item.smalltext}}</h3>
+            </navigator>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

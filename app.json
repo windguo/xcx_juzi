@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/juzi_detail/juzi_detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff5a62",
+    "navigationBarTitleText": "爱句子",
+    "navigationBarTextStyle":"light",
+    "enablePullDownRefresh":true
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx711d9992cb89aa05",
+    "wxb2e976cef0f6facb",
+    "wxa12f1b4e608253f8",
+    "wx8041cab51c6ffcff"
+  ]
+}
