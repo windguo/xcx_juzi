@@ -1,0 +1,23 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view hidden="true">
+
+<view class="container">
+	<form class="formDontain" bindsubmit="confirmM">
+		<view hidden='false'>
+			<view class="text">
+				<view>请输入在<span style="color:red">http://www.wangming.org.cn</span>网站的会员用户名和密码。如果无用户名，可直接点击下面【立即绑定】,系统会自动帮您注册，注册后如果需要修改，请联系客服。</view>
+			</view>
+			
+			<input bindinput='username' name="username" type='text' placeholder="请输入用户名" />
+			<input bindinput='password' name="password" type='password' placeholder="请输入密码" />
+			<view class="text">
+				<view>绑定后可使用微信登录,无需输入用户名和密码</view>
+				<view>欢迎添加微信客服:<span bindtap="copyTBL" data-text="fengzhang201909">fengzhang201909(点击复制微信号)</span>申请加入微信群哦。</view>
+			</view>
+		</view>
+		<button form-type="submit" type="warn">立即注册会员并绑定</button>
+	</form>
+</view>
+</view>

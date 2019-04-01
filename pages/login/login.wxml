@@ -1,0 +1,22 @@
+<view class="container">
+    <view wx:if="{{canIUse}}">
+			<icon bindtap="_home" class="icon icon-home"></icon>
+      <icon bindtap="_back" class="icon icon-back"></icon>
+        <view class='header'>
+            <image class="icon" src='/images/icon.jpeg' background-size="cover"></image>
+						<h2>爱句子</h2>
+        </view>
+        
+        <view class='content'>
+            <view>申请获取您的以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+    
+        <button class='bottom' type='warn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    
+    <view wx:else>请升级微信版本</view>
+
+</view>

@@ -1,0 +1,18 @@
+<!-- 单行文字向上滚动开始 -->
+<view class="textwrap">
+	<swiper class='textUp' vertical="true" autoplay="true" circular="true" interval="5000" display-multiple-items='1'>
+			<block wx:for-index="idx" wx:for='{{textData}}'>
+				<swiper-item>
+					<view class="icon icon-profile">
+						欢迎<span>{{username}}</span>在<span>{{registertime}}</span>加入会员
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="icon icon-rank">
+						今日<span>({{snewstime}})</span>新增句子<span>{{todayUpdate}}</span>个,共有<span>{{total}}</span>个
+						</view>
+				</swiper-item>
+			</block> 
+	</swiper>
+</view>
+<!-- 单行文字向上滚动结束 -->

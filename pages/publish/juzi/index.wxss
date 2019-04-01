@@ -1,0 +1,77 @@
+.publishBox{
+	padding: 40rpx;
+}
+.publishBox .title{
+	width:90%;
+	border-radius: 20rpx;
+	border: 2rpx solid #fa7263;
+	background: #fff;
+	font-size:36rpx;
+	padding:30rpx;
+	margin-bottom:30rpx;
+}
+.pics{margin-bottom:50rpx;}
+.pics image{width:200px;height:200px;}
+.add{
+	font-size: 40rpx;
+	margin:20rpx 40rpx 40rpx 0;
+	color: blueviolet;
+	width:200px;
+}
+.button{
+	margin:0 50rpx 50rpx;
+}
+.cancel{
+	margin:40rpx 0 0rpx 40rpx;
+	color: #fa7263;
+	font-size:36rpx;
+}
+.textarea{
+	border:2rpx solid #fa7263;
+	background: #fffff0;
+	height:100rpx;
+	padding:30rpx;
+	border-radius: 20rpx;
+	width: auto;
+}
+
+.choose{line-height: 32px;display: flex;}
+.choose image{width:32px;}
+.choose .tex{color:#fa7263;padding-left:20rpx;}
+.choose2{margin-top:40rpx;}
+
+.classs{margin-bottom: 40rpx;font-size: 36rpx;}
+
+.classlist{
+	display: flex;
+    flex-flow: wrap;
+}
+.classlist .text{
+	width: 23%;
+	font-size:30rpx;
+	background: #fff;
+	border-radius: 20rpx;
+	padding:20rpx;
+	color:#333;
+	text-align: center;
+	margin-right: 20rpx;
+	margin-bottom: 20rpx;
+}
+.tips{
+	background: #fffff0;
+	font-size: 30rpx;
+	text-align: center;
+	padding:30rpx 0;
+	border-top:1px solid #f8f8f8;
+	color: #282828;
+}
+
+.container .submitBtn {
+  background-color: blueviolet;
+  color: white;
+  font-size: 34rpx;
+  width: 710rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  margin-top: 15rpx;
+}

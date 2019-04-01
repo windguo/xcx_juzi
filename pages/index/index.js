@@ -38,7 +38,20 @@ Page({
       }
     }
   },
-  data: {
+	data: {
+		navbarData: {
+			title: "爱句子",
+			showCapsule: false
+		},
+		textData: {
+			title: '我是首页的tips',
+			icon: 'warn_light'
+		},
+		nodata:true,
+		page: 1,
+		height: app.globalData.height * 2 + 25,
+		StatusBar: app.globalData.StatusBar,
+		CustomBar: app.globalData.CustomBar,
     index: null,
     winHeight: '', // 窗口高度
     currentTab: 0, // 预设当前项的值
@@ -49,49 +62,32 @@ Page({
     _windowWidth: wx.getSystemInfoSync().windowWidth,
     contentArray: []
   },
-
-  getListData: function (classid, more) {
-    let that = this
-    let _arr = this.data.contentArray
-    wx.request({
-      url: 'https://www.yishuzi.com.cn/jianjie8_xiaochengxu_api/xiaochengxu/juzi/?getJson=column&classid=' + classid,
-      method: 'GET',
-      dataType: 'json',
-      success: (json) => {
-        console.log('json.data.result---', json)
-        if (more) {
-          let _newArr = []
-          for (let index = 0; index < json.data.result.length; index++) {
-            _newArr.push({
-              classid: json.data.result[index].classid,
-              id: json.data.result[index].id,
-              smalltext: json.data.result[index].smalltext,
-              title: json.data.result[index].title
-            })
-          }
-          _arr = _arr.concat(_newArr)
-          that.setData({
-            contentArray: _arr
-          })
-        } else {
-          let _newArr = []
-          for (let index = 0; index < json.data.result.length; index++) {
-            _newArr.push({
-              classid: json.data.result[index].classid,
-              id: json.data.result[index].id,
-              smalltext: json.data.result[index].smalltext,
-              title: json.data.result[index].title
-            })
-          }
-          console.log('===', _newArr)
-          that.setData({
-            contentArray: _newArr
-          })
-        }
-        console.log('contentArray--==', this.data.contentArray)
-        wx.hideLoading()
-      }
-    })
+	getListData: function (classid, page) {
+		wx.showLoading({
+			title: '加载中...'
+		})
+		let that = this
+		console.log('__page__', this.data.page)
+		console.log('https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=' + classid + '&page=' + page)
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=' + classid + '&page=' + page,
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result)
+				if(json.data.status == 1){
+					that.setData({
+						nodata: false,
+						contentArray: json.data.result
+					})
+				}else{
+					that.setData({
+						nodata: true
+					})
+				}
+				wx.hideLoading()
+			}
+		})
   },
   // 滚动切换标签样式
   swiperChange: function (e) {
@@ -99,7 +95,7 @@ Page({
     this.setData({
       currentTab: e.detail.current
     })
-    this.getListData(this.data.expertListId[e.detail.current])
+    this.getListData(this.data.expertListId[e.detail.current],1)
     this.checkCor()
   },
   // 点击标题切换当前页时改变样式
@@ -111,35 +107,17 @@ Page({
         currentTab: cur
       })
     }
-    this.getListData(this.data.expertListId[cur])
+    this.getListData(this.data.expertListId[cur],1)
   },
   // 判断当前滚动超过一屏时，设置tab标题滚动条。
   checkCor: function () {
-    wx.showLoading({}),
+    wx.showLoading({title:'加载中...'}),
     this.setData({
       scrollLeft: 160 * this.data.currentTab - 200
     })
   },
   onLoad: function (options) {
-    // wx.request({
-    //     url: 'http://www.jianjie8.com/e/member/doaction.php',
-    //     data: {
-    //         clienttype: 'xiaochengxu',
-    //         enews: 'testIsLogin'
-    //     },
-    //     header: {
-    //         'content-type': 'application/x-www-form-urlencoded',
-    //         'userid': app.globalData.userid,
-    //         'token': app.globalData.token
-    //     },
-    //     method: 'POST',
-    //     dataType: 'json',
-    //     success: (json) => {
-    //         console.log('jsonjsonjson----login', json)
-    //     }
-    // })
-
-    wx.showLoading({})
+    wx.showLoading({title:'加载中...'})
 
     // 扫码进入的判断开始
     const _scene = options.scene
@@ -157,7 +135,7 @@ Page({
     let _classid = []
     let _expertListi = []
     wx.request({
-      url: 'https://www.yishuzi.com.cn/jianjie8_xiaochengxu_api/xiaochengxu/juzi/?getJson=class',
+      url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=class',
       method: 'GET',
       dataType: 'json',
       success: (json) => {
@@ -173,7 +151,7 @@ Page({
         })
       }
     })
-    this.getListData(this.data.currentTab)
+    this.getListData(this.data.currentTab,1);
     var that = this
     //  高度自适应
     wx.getSystemInfo({
@@ -188,8 +166,78 @@ Page({
       }
     })
   },
-  scrolltolowerLoadData: function (e) {
-    console.log('scrolltolowerLoadData', e)
-    this.getListData(this.data.expertListId[this.data.currentTab], true)
-  }
+	onPullDownRefresh: function () {
+		wx.showLoading({title:'加载中...'});
+		let that = this;
+		wx.request({
+			url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=0',
+			method: 'GET',
+			dataType: 'json',
+			success: (json) => {
+				console.log('---======------', json.data.result);
+				that.setData({
+					contentArray: json.data.result
+				});
+				wx.hideLoading()
+			}
+		});
+	},
+	scrolltolowerLoadData: function (e) {
+		wx.showLoading({
+			title: '加载中...'
+		})
+		console.log('scrolltolowerLoadData', e)
+		let that = this
+		this.setData({
+			page: that.data.page + 1
+		});
+
+		if (this.data.state == 2) {
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=article&userid=' + this.data.userid + '&page=' + this.data.page,
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					let _arr = this.data.contentArray
+					_arr = _arr.concat(json.data.result)
+					console.log('__arr__', _arr)
+					that.setData({
+						contentArray: _arr
+					})
+					wx.hideLoading()
+				}
+			})
+		} else if (this.data.state == 3) {
+			console.log('https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&size=' + this.data.sizePage + '&page=' + this.data.page);
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&size=' + this.data.sizePage + '&page=' + this.data.page,
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					let _arr = this.data.contentArray
+					_arr = _arr.concat(json.data.result)
+					console.log('__arr__', _arr)
+					that.setData({
+						contentArray: _arr
+					})
+					wx.hideLoading()
+				}
+			})
+		} else {
+			wx.request({
+				url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=' + this.data.classid + '&page=' + that.data.page,
+				method: 'GET',
+				dataType: 'json',
+				success: (json) => {
+					let _arr = this.data.contentArray
+					_arr = _arr.concat(json.data.result)
+					console.log('__arr__', _arr)
+					that.setData({
+						contentArray: _arr
+					})
+					wx.hideLoading()
+				}
+			})
+		}
+	}
 })

@@ -20,7 +20,25 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+function checkIsLogin() {
+	if (!wx.getStorageSync('storageLoginedUsernames')) {
+		wx.redirectTo({
+			url: '/pages/login/login'
+		});
+	}
+}
+
+function extract_chinese(txt) {
+	var reg = /[\u4e00-\u9fa5]/g;
+	var names = txt.match(reg);
+	let t;
+	t = names.join("");
+	return t;
+};
+
 module.exports = {
+	checkIsLogin: checkIsLogin,
+	extract_chinese: extract_chinese,
   formatTime: formatTime,
   transLocalTime: transLocalTime
 }

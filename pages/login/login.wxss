@@ -1,0 +1,45 @@
+Page{background: #fff;}
+.header{
+	background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+}
+.header h2{font-size:50rpx;padding-top:10rpx;text-align: center;display: block;color: #fff;}
+
+.formWrap{padding:50rpx 80rpx;}
+.formWrap .section{padding-bottom:40rpx;}
+.formWrap .section input{border:1rpx solid #ccc;margin-top:20rpx;background:#f9f9f9;border-radius: 20rpx;line-height: 40rpx;padding:30rpx;}
+.btn-area{padding-top: 50rpx;}
+.formWrap .section .section__title{padding-bottom:10rpx;}
+
+.icon-back,.icon-home{
+	position: absolute;
+	left:90rpx;
+	top:100rpx;
+	color: #fff;
+	font-weight: 100;
+	font-size: 36rpx;
+}
+.icon-home{
+	left:40rpx
+}
+
+.header{padding:50rpx;text-align: center}
+.header .icon{width:100px;height:100px;border-radius: 50%;margin-top:80rpx;}
+ 
+.content {
+    margin: 50rpx;
+}
+ 
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+ 
+.bottom {
+    border-radius: 30rpx;
+    margin: 70rpx 50rpx;
+    padding:10rpx 0;
+    font-size: 40rpx;
+}
+.modalSkin input{border:1rpx solid #ccc;margin-top:20rpx;background:#f9f9f9;border-radius: 20rpx;line-height: 40rpx;padding:20rpx;}
+.modalSkin input:first-child{margin-top:20rpx;}

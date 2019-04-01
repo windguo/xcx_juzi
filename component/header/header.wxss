@@ -1,0 +1,38 @@
+.iconfont {
+  font-size: 40rpx;
+}
+.icon{
+	margin-right:20rpx;
+}
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.j_header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  color: #fff;
+  z-index: 999;
+}
+.j-left{
+	position: absolute;
+	left: 40rpx;
+  right: 0;
+  bottom: 0;
+	display: flex;
+}
+/* 标题要居中 */
+.j-title {
+	position: absolute;
+  text-align: center;
+  max-width: 360rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 300;
+}

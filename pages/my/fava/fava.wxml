@@ -1,0 +1,26 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+      <view class="nodata" wx:if="{{contentArrayFlag}}">暂未收藏</view>
+			<view wx:else class="node-list">
+				<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+					<view class="node-item">
+						<navigator redirect class="top" url="../../detail/detail?id={{item.id}}&classid={{item.classid}}">
+							<view class='t'>{{item.title}}</view>
+							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+						</navigator>
+						<view class="bottom">
+							<view class="onclick"><span>{{item.onclick}}</span>℃</view>
+							<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+								<view class="username">{{item.username}}</view>
+							</navigator>
+							<!-- <view class="icon icon-favor_light "></view>
+							<view bindtap='diggtopFn' data-id="{{item.id}}" data-classid="{{item.classid}}" class="icon icon-appreciate_light "></view> -->
+						</view>
+					</view>
+				</block>
+			</view>
+    </scroll-view>
+</view>

@@ -1,20 +1,43 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<navigator url="../publish/juzi/index" hover-class="navigator-hover">
+	<icon class="add icon icon-add"></icon>
+</navigator>
+
 <view class="container bgeee">
   <view>
     <scroll-view scroll-with-animation="true" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
       <view wx:for="{{expertList}}" wx:for-index="idx" wx:for-item="item" class="tab-item {{currentTab==idx?'active':''}}"
-        data-current="{{idx}}" bindtap="swichNav">{{item.classname}}</view>
+        data-current="{{idx}}">
+				<navigator url="../list/list?classid={{item.classid}}&classname={{item.classname}}">
+					<view class="cla">{{item.classname}}</view>
+				</navigator>	
+			</view>
     </scroll-view>
   </view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
     <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
       <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
-        <view class="layout_vertical">
-          <view wx:for="{{contentArray}}" class="listViews" wx:for-index="i" wx:for-item="item" data-text="{{item.title}}">
-            <navigator url="../juzi_detail/juzi_detail?classid={{item.classid}}&id={{item.id}}" hover-class="navigator-hover">
-              <h3>{{item.smalltext}}</h3>
-            </navigator>
-          </view>
-        </view>
+				<block wx:if="{{currentTab == 0}}">
+					<text text-data='{{textData}}'></text>
+				</block>
+				<view class="nodata" wx:if='{{nodata}}'>加载数据中...</view>
+				<view wx:else class="juzi-list">
+					<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+						<view class="juzi-item">
+							<navigator class="top" url="../detail/detail?id={{item.id}}&classid={{item.classid}}">
+								<view class='t'>{{item.title}}</view>
+							</navigator>
+							<view class="bottom">
+								<view  class="onclick">{{item.newstime}}</view>
+								<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+									<view class="username">{{item.username}}</view>
+								</navigator>
+							</view>
+						</view>
+					</block>
+				</view>
       </scroll-view>
     </swiper-item>
   </swiper>

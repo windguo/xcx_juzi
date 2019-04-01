@@ -1,0 +1,8 @@
+.logins{margin-top:100rpx;}
+.logins h2{font-size:50rpx;padding-bottom:30rpx;text-align: center;display: block}
+
+.formWrap{padding:50rpx 80rpx;}
+.formWrap .section{padding-bottom:40rpx;}
+.formWrap .section input{border:1rpx solid #ccc;margin-top:20rpx;background:#f9f9f9;border-radius: 20rpx;line-height: 40rpx;padding:30rpx;}
+.btn-area{padding-top: 50rpx;}
+.formWrap .section .section__title{padding-bottom:10rpx;}

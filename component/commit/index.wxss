@@ -1,0 +1,23 @@
+.commit{
+	margin:20rpx 0 40rpx 0;
+}
+.commit .publish{
+	display: flex;
+	justify-content: space-around;
+}
+.into{
+	border:1px solid #c00;
+	padding:20rpx;
+	border-radius: 10rpx;
+}
+.tx{
+	margin:0 10rpx;
+	width: 90rpx;
+	height: 90rpx;
+	border-radius: 100rpx;
+}
+.but{
+	background: #f60;
+	color: #fff;
+	font-size: 36rpx;
+}

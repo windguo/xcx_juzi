@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -45,22 +45,39 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "段子首页",
-					"pathName": "pages/duanzi/duanzi",
-					"query": ""
+					"id": 1,
+					"name": "我的收藏",
+					"pathName": "pages/my/fava/fava",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 2,
-					"name": "id=3333的段子",
-					"pathName": "pages/duanzi_detail/duanzi_detail",
-					"query": "classid=226&id=3333"
+					"name": "详情页",
+					"pathName": "pages/detail/detail",
+					"query": "id=1183&classid=8",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "我的",
+					"pathName": "pages/my/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "发布句子",
+					"pathName": "pages/publish/juzi/index",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "关于我们",
-					"pathName": "pages/about/about",
-					"query": ""
+					"name": "userid=2",
+					"pathName": "pages/user_list/index",
+					"query": "userid=2",
+					"scene": null
 				}
 			]
 		}

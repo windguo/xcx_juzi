@@ -1,0 +1,40 @@
+<header navbar-data='{{navbarData}}'></header>
+<view style="height:{{CustomBar}}px;"></view>
+
+<view class="container bgeee">
+    <scroll-view scroll-with-animation="true" scroll-y="true" style="height:{{winHeight}}rpx;" bindscrolltolower="scrolltolowerLoadData">
+			<view class="nodata" hidden='{{dataHidden}}'>
+				暂未发布
+				<navigator redirect url='../../publish/juzi/index'>
+					<button style="margin:40rpx 140rpx;" type='warn'>立即发布</button>
+				</navigator>
+			</view>
+      <view hidden='{{dataShow}}' class="layout_vertical">
+				<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
+					<view class="listViews">
+						<view wx:if="{{item.unreview == 1}}">
+							<icon class="icon icon-audit"></icon>
+							<view class="top">
+								<view class='t'>{{item.title}}</view>
+							</view>
+							<view class="bottom">
+								<view  class="onclick"><span>{{item.newstime}}</span></view>
+								<view class="onclick">人气：<span>{{item.onclick}}</span>℃</view>
+							</view>
+						</view>
+						<block wx:else>
+							<navigator class="top" url="../../detail/detail?id={{item.id}}&classid={{item.classid}}">
+							<view class='t'>{{item.title}}</view>
+							<view class="t" hidden="{{Boolean(item.ftitle) ? true : false}}">{{item.ftitle}}</view>
+						</navigator>
+						<view class="bottom">
+							<view  class="onclick"><span>{{item.newstime}}</span></view>
+							<view class="onclick"><span>{{item.onclick}}</span>℃</view>
+						</view>
+						</block>
+					</view>
+				</block>
+			</view>
+			<button bindtap="goPublish" type='warn' class="sharetoFrinend">继续发布句子</button>
+    </scroll-view>
+</view>

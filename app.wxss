@@ -1,4 +1,7 @@
-/**app.wxss**/
+@import "icon.wxss";
+Page{
+	font-size: 36rpx;
+}
 .container {
   height: 100%;
   display: flex;
@@ -18,15 +21,6 @@
 
 /* .navigator-hover{background: none!important;} */
 .bgeee{background: #eee;}
-.header {
-    height: 80rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36rpx;
-    background-color: #56abe4;
-    border-bottom: 1px solid #eee;
-}
 
 .topic-item {
     padding:30rpx;

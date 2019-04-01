@@ -1,15 +1,42 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/juzi_detail/juzi_detail"
+		"pages/login/login",
+		"pages/bind/bind",
+		"pages/loginout/loginout",
+		"pages/list/list",
+    "pages/detail/detail",
+		"pages/user_list/index",
+		"pages/my/index/index",
+		"pages/my/fava/fava",
+		"pages/my/publish/publish",
+		"pages/publish/juzi/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#ff5a62",
     "navigationBarTitleText": "爱句子",
-    "navigationBarTextStyle":"light",
-    "enablePullDownRefresh":true
+    "navigationBarTextStyle":"white",
+    "navigationStyle": "custom"
   },
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#f44c66",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "images/ic_home.png",
+				"selectedIconPath": "images/ic_home_active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/my/index/index",
+				"iconPath": "images/ic_my.png",
+				"selectedIconPath": "images/ic_my_active.png",
+				"text": "我的"
+			}
+		]
+	},
   "navigateToMiniProgramAppIdList": [
     "wx711d9992cb89aa05",
     "wxb2e976cef0f6facb",

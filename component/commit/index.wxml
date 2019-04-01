@@ -1,0 +1,18 @@
+<view class="commit">
+	<view wx:for="{{commitListArray}}" wx:for-item="item">
+		<navigator url="../list/list?state=2&userid={{item.userid}}&username={{item.username}}">
+			<view class="username">{{item.username}}</view>
+		</navigator>
+		<view class="content">{{item.saytext}}</view>
+		
+	</view>
+	<form class="forms" bindsubmit="publishCommit" report-submit='true'>
+		<view class="publish">
+			<image class="tx" src="{{avatarUrl}}" background-size="cover"></image>
+			<input  name="saytext" placeholder="随便说点什么吧" type="text" class="into" />
+			<input hidden name="id" class="text" value="{{commitData.id}}" />
+			<input hidden name="classid" class="text"  value="{{commitData.classid}}"/>
+			<button class="but" form-type="submit">发表</button>
+		</view>
+	</form>
+</view>

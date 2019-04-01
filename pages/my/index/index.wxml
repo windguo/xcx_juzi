@@ -1,0 +1,52 @@
+<view class="container bgeee">
+	<view class="header">
+		<image src="{{avatarUrl}}" background-size="cover"></image>
+		<view class="texts">
+			<text class="text">{{nickname}}</text>
+			<text class="text2">{{usernames}} (如需改名,联系客服)</text>
+		</view>
+	</view>
+	<view class="list">
+		<navigator url="../fava/fava" hover-class="navigator-hover">
+				<view class="flex">
+					<view class="it">
+						<text class="icon icon-goods_favor_light"></text>
+						我的收藏
+					</view>
+					<text class="r icon icon-right"></text>
+				</view>
+		</navigator>
+		<navigator url="../../publish/juzi/index" hover-class="navigator-hover">
+				<view class="flex">
+					<view class="it">
+						<text class="icon icon-edit"></text>
+						发布句子
+					</view>
+					<text class="r icon icon-right"></text>
+				</view>
+		</navigator>
+		<navigator url="../publish/publish" hover-class="navigator-hover">
+				<view class="flex">
+					<view class="it">
+						<text class="icon icon-profile_light"></text>
+						我发布的句子
+					</view>
+					<text class="r icon icon-right"></text>
+				</view>
+		</navigator>
+		<view class="flex" bindtap='copyTBL' data-text="fengzhang201909">
+			<view class="it">
+				<text class="icon icon-info"></text>
+				客服微信号:<span style="color:#c00">fengzhang201909</span>
+			</view>
+			<text class="r icon icon-copy"></text>
+		</view>
+		<view class="flex" bindtap='loginout' hover-class="navigator-hover">
+			<view class="it">
+				<text class="icon icon-out"></text>
+				退出登录
+			</view>
+			<text class="r icon icon-right"></text>
+		</view>
+	</view>
+</view>

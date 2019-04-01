@@ -1,0 +1,29 @@
+<view 
+	class="j_header" 
+	style="height:{{CustomBar}}px;"
+>
+  <view 
+		class="j-title" 
+		style="top:{{titleTop}}px"
+	>
+		{{navbarData.title}}
+	</view>
+	<view 
+		hidden="{{navbarData.showCapsule == true ? false : true}}" 
+		class="j-left" 
+		style="top:{{titleTop}}px"
+	>
+		<view 
+			hidden="{{navbarData.home == true ? false :true}}" 
+			bindtap="_backhome" 
+			class="icon icon-home"
+		>
+		</view>
+		<view 
+			hidden="{{navbarData.back == true ? false :true}}" 
+			bindtap="_navback" 
+			class="icon icon-back"
+		>
+		</view>
+	</view>
+</view>
