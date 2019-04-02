@@ -18,7 +18,7 @@
 	text-align: center;
 }
 .juzi-list{
-    margin:40rpx;
+    margin:0 40rpx 40rpx;
 }
 .juzi-item {
 	width: 100%;
@@ -60,11 +60,11 @@
 	color: LightSalmon;
 }
 
-.add{
+.add,.refresh{
 	height: 100rpx;
 	width: 100rpx;
 	position: fixed;
-	bottom: 100rpx;
+	bottom: 200rpx;
 	right: 100rpx;
 	z-index: 988;
 	font-size: 120rpx;
@@ -74,4 +74,16 @@
 	padding:0;
 	outline: 0;
 	line-height: normal;
+}
+.refresh{
+	bottom:60rpx;
+	color:#ff4f41;
+	right:80rpx;
+	font-size:90rpx;
+}
+.navigator-hover{
+	z-index: 988;
+}
+.mt40{
+	margin-top: 40rpx;
 }

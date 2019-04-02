@@ -6,6 +6,7 @@ Page({
   onShareAppMessage: function (res) {
 		return {
 			title: '各类经典最新句子每日更新...',
+			imageUrl:'/images/indexPic.jpg',
 			path: '/pages/index/index',
 			success: (res) => {
 				wx.showToast({
@@ -147,8 +148,8 @@ Page({
       }
     })
   },
-	onPullDownRefresh: function () {
-		wx.showLoading({title:'加载中...'});
+	reloadFn: function () {
+		wx.showLoading({title:'更新中...'});
 		let that = this;
 		wx.request({
 			url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=0',

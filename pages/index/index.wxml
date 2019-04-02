@@ -1,9 +1,11 @@
 <header navbar-data='{{navbarData}}'></header>
 <view style="height:{{CustomBar}}px;"></view>
 
-<navigator url="../publish/juzi/index" hover-class="navigator-hover">
+<navigator url="../publish/juzi/index">
 	<icon class="add icon icon-add"></icon>
 </navigator>
+
+<icon bindtap="reloadFn" class="refresh icon icon-refresh"></icon>
 
 <view class="container bgeee">
   <view>
@@ -18,10 +20,10 @@
   </view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="swiperChange" style="height:{{winHeight}}rpx">
     <swiper-item wx:for="{{expertListi}}" wx:for-index="i" wx:for-item="items">
-      <scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h" bindscrolltolower="scrolltolowerLoadData">
-				<block wx:if="{{currentTab == 0}}">
-					<text text-data='{{textData}}'></text>
-				</block>
+			<block wx:if="{{currentTab == 0}}">
+				<text text-data='{{textData}}'></text>
+			</block>
+			<scroll-view scroll-with-animation="true" scroll-y="true" class="scoll-h {{currentTab == 0  ? '' : 'mt40'}}" bindscrolltolower="scrolltolowerLoadData">
 				<view class="nodata" wx:if='{{nodata}}'>加载数据中...</view>
 				<view wx:else class="juzi-list">
 					<block wx:for="{{contentArray}}" wx:for-index="i" wx:for-item="item">
@@ -38,7 +40,7 @@
 						</view>
 					</block>
 				</view>
-      </scroll-view>
+			</scroll-view>
     </swiper-item>
   </swiper>
 </view>
