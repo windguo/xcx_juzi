@@ -4,39 +4,20 @@ var Api = require('../../utils/api.js')
 var app = getApp()
 Page({
   onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log('res.target===', res.target)
-      return {
-        title: this.data.title,
-        imageUrl: this.data.titlepic,
-        success: (res) => {
-          wx.showToast({
-            content: '分享成功'
-          })
-        },
-        fail: (res) => {
-          wx.showToast({
-            content: '分享失败,原因是' + res
-          })
-        }
-      }
-    } else {
-      return {
-        title: '各类经典最新句子每日更新...',
-        path: '/pages/juzi/juzi',
-        success: (res) => {
-          wx.showToast({
-            content: '分享成功'
-          })
-        },
-        fail: (res) => {
-          wx.showToast({
-            content: '分享失败,原因是' + res
-          })
-        }
-      }
-    }
+		return {
+			title: '各类经典最新句子每日更新...',
+			path: '/pages/index/index',
+			success: (res) => {
+				wx.showToast({
+					content: '分享成功'
+				})
+			},
+			fail: (res) => {
+				wx.showToast({
+					content: '分享失败,原因是' + res
+				})
+			}
+		}
   },
 	data: {
 		navbarData: {
