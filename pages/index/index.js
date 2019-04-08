@@ -36,6 +36,7 @@ Page({
 		CustomBar: app.globalData.CustomBar,
     titleTop: app.globalData.StatusBar,
     index: null,
+		hidden: false,
     winHeight: '', // 窗口高度
     currentTab: 0, // 预设当前项的值
     scrollLeft: 0, // tab标题的滚动条位置
@@ -45,6 +46,11 @@ Page({
     _windowWidth: wx.getSystemInfoSync().windowWidth,
     contentArray: []
   },
+	gifHidden: function () {
+		this.setData({
+			hidden: true
+		})
+	},
   searchPage: function () {
     wx.navigateTo({
       url: '../search/search'
@@ -120,25 +126,7 @@ Page({
       }
     }
     // 扫码进入的判断结束
-    let _classid = []
-    let _expertListi = []
-    wx.request({
-      url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=class',
-      method: 'GET',
-      dataType: 'json',
-      success: (json) => {
-        console.log('json000class===--', json.data.result)
-        for (var i = 0; i < json.data.result.length; i++) {
-          _expertListi.push(i)
-          _classid.push(json.data.result[i].classid)
-        }
-        this.setData({
-          expertList: json.data.result,
-          expertListi: _expertListi,
-          expertListId: _classid
-        })
-      }
-    })
+		this.getClass();
     this.getListData(this.data.currentTab,1);
     var that = this
     //  高度自适应
@@ -154,21 +142,31 @@ Page({
       }
     })
   },
-	reloadFn: function () {
-		wx.showLoading({title:'更新中...'});
+	getClass:function(){
 		let that = this;
+		let _classid = []
+		let _expertListi = []
 		wx.request({
-			url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=column&classid=0',
+			url: 'https://www.yishuzi.com.cn/juzi_xiaochengxu_api/?getJson=class',
 			method: 'GET',
 			dataType: 'json',
 			success: (json) => {
-				console.log('---======------', json.data.result);
+				console.log('json000class===--', json.data.result)
+				for (var i = 0; i < (json.data.result).length; i++) {
+					_expertListi.push(i)
+					_classid.push(json.data.result[i].classid)
+				}
 				that.setData({
-					contentArray: json.data.result
-				});
-				wx.hideLoading()
+					expertList: json.data.result,
+					expertListi: _expertListi,
+					expertListId: _classid
+				})
 			}
-		});
+		})
+	},
+	reloadFn: function () {
+		this.getClass();
+		this.getListData(this.data.currentTab, 1);
 	},
 	scrolltolowerLoadData: function (e) {
 		wx.showLoading({
